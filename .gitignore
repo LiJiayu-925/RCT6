@@ -1,0 +1,28 @@
+# Keil MDK build outputs
+OBJ/
+*.axf
+*.d
+*.dep
+*.htm
+*.lnp
+*.lst
+*.map
+*.o
+*.sct
+*.tra
+*.uvguix.*
+*.uvoptx
+*.bak
+*.crf
+*.iex
+*.ekp
+*.pack
+EventRecorderStub.scvd
+
+# Debug/Release outputs
+*.bin
+*.elf
+*.hex
+
+# IDE settings (user-specific)
+*.uvguix
