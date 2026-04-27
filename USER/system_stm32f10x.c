@@ -46,7 +46,7 @@ void SystemInit(void)
     /* Reset HSEBYP bit */
     RCC->CR &= (uint32_t)0xFFFBFFFF;
 
-    /* Reset PLLSRC, PLLXTPRE, PLLMUL bits [21:18, 17, 16] */
+    /* Reset PLLSRC (bit 16), PLLXTPRE (bit 17), PLLMUL (bits 21:18) */
     RCC->CFGR &= (uint32_t)0xFF80FFFF;
 
     /* Disable all interrupts and clear pending bits  */
