@@ -46,7 +46,7 @@ void SystemInit(void)
     /* Reset HSEBYP bit */
     RCC->CR &= (uint32_t)0xFFFBFFFF;
 
-    /* Reset PLLSRC, PLLXTPRE, PLLMUL and USBPRE/OTGFSPRE bits */
+    /* Reset PLLSRC, PLLXTPRE, PLLMUL bits [21:18, 17, 16] */
     RCC->CFGR &= (uint32_t)0xFF80FFFF;
 
     /* Disable all interrupts and clear pending bits  */
@@ -191,8 +191,8 @@ void SystemCoreClockUpdate(void)
     tmp = (RCC->CFGR & RCC_CFGR_HPRE) >> 4;
     if (tmp >= 8)
     {
-        /* AHB prescaler is active */
+        /* AHB prescaler is active: divide by the prescaler value */
         uint32_t ahb_presc_tbl[8] = {2, 4, 8, 16, 64, 128, 256, 512};
-        SystemCoreClock >>= ahb_presc_tbl[tmp - 8];
+        SystemCoreClock /= ahb_presc_tbl[tmp - 8];
     }
 }

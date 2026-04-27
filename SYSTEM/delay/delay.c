@@ -19,10 +19,10 @@ static uint16_t fac_ms = 0;   /* ms delay multiplier */
   */
 void delay_init(void)
 {
-    /* Use external clock: SysTick clock = HCLK/8 = 9MHz */
+    /* Use external clock: SysTick clock = HCLK/8 */
     SysTick->CTRL &= ~SysTick_CTRL_CLKSOURCE_Msk;
-    fac_us = SystemCoreClock / 8000000;  /* 9 ticks per us */
-    fac_ms = (uint16_t)fac_us * 1000;   /* 9000 ticks per ms */
+    fac_us = (SystemCoreClock / 8) / 1000000;  /* ticks per microsecond */
+    fac_ms = (uint16_t)fac_us * 1000;          /* ticks per millisecond */
 }
 
 /**

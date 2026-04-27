@@ -219,14 +219,18 @@ typedef struct
 {
   __IO uint16_t SR;
   uint16_t  RESERVED0;
-  __IO uint16_t CR1;
+  __IO uint16_t DR;
   uint16_t  RESERVED1;
-  __IO uint16_t CR2;
+  __IO uint16_t BRR;
   uint16_t  RESERVED2;
-  __IO uint16_t CR3;
+  __IO uint16_t CR1;
   uint16_t  RESERVED3;
-  __IO uint16_t GTPR;
+  __IO uint16_t CR2;
   uint16_t  RESERVED4;
+  __IO uint16_t CR3;
+  uint16_t  RESERVED5;
+  __IO uint16_t GTPR;
+  uint16_t  RESERVED6;
 } USART_TypeDef;
 
 typedef struct
